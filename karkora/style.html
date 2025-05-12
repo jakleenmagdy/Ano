@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Greeting Card</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f55faf;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+        
+        .card {
+            position: relative;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+            animation: fadeInCard 2s ease-in-out;
+        }
+
+        .greeting {
+            position: relative;
+            z-index: 10;
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #FF69B4;
+            animation: fadeInTitle 2s ease-in-out;
+        }
+
+        .message {
+            font-size: 20px;
+            color: #FFB6C1;
+            opacity: 0;
+            animation: fadeInMessage 3s ease-in-out forwards;
+        }
+
+        .bear {
+            position: relative;
+            width: 250px;
+            height: 250px;
+            background: url('WhatsApp Image 2025-05-12 at 19.02.41_7a12fb7a.jpg') no-repeat center center;
+            background-size: contain;
+            margin: 20px auto;
+            animation: bounceBear 3s infinite;
+        }
+
+    
+
+
+        @keyframes fadeInCard {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInTitle {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInMessage {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes bounceBear {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes popHeart {
+            0% {
+                opacity: 0;
+                transform: scale(0);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.2);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(0);
+                top: -100px;
+            }
+        }
+       
+        .title {
+      font-size: 1.5rem;
+      margin: 20px 0 10px;
+      font-weight: bold;
+    }
+
+    .countdown {
+      font-size: 1.2rem;
+      color: #ff6347;
+      margin-top: 10px;
+    }
+
+    .teddy {
+      font-size: 7rem;
+      position: relative;
+      z-index: 20;
+    }
+
+    .heart {
+      position: absolute;
+      color: red;
+      font-size:3rem;
+      animation: floatUp 2s ease-out forwards;
+      pointer-events: none;
+    }
+    @keyframes floatUp {
+      0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-100px) scale(1.5);
+      }
+    }
+
+
+    
+    </style>
+</head>
+<body>
+    <div class="card">
+    
+    <div class="title">فاضل كام يوم و اجمل و اشطر كتكوته تكبر يا اجمل لولا</div>
+    <div class="countdown" id="countdown"></div>
+    <div class="teddy" id="teddy">🧸</div>
+        <div class="greeting">
+            <h1>48 days left, Sweet Girl!</h1>
+            <p class="message"></p>
+        </div>
+        <div class="bear"></div>
+        
+    </div>
+</style>
+</head>
+
+    
+<script>
+
+
+    function createHeart() {
+      const teddy = document.getElementById('teddy');
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.innerText = '❤';
+
+      
+      teddy.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 2000);
+    }
+    setInterval(createHeart, 800);
+    updateCountdown();
+    setInterval(updateCountdown, 86400000); // Update once per day
+  </script>
+</body>
+</html>
+</html>
